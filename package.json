@@ -21,14 +21,11 @@
     "compression": "^1.7.0",
     "copy-webpack-plugin": "^4.0.1",
     "eslint": "^4.4.1",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "react-hot-loader": "^3.0.0-beta.7",
-    "webpack": "^3.5.1",
+    "webpack": "^3.5.2",
     "webpack-dev-server": "^2.7.1",
     "webpack-merge": "^4.1.0"
   },
@@ -40,43 +37,5 @@
   "bugs": {
     "url": "https://github.com/alexmarmon/lofty-config/issues"
   },
-  "homepage": "https://github.com/alexmarmon/lofty-config#readme",
-  "eslintConfig": {
-    "extends": "airbnb",
-    "parser": "babel-eslint",
-    "globals": {
-      "document": true,
-      "fetch": true,
-      "console": true,
-      "it": true,
-      "describe": true,
-      "window": true
-    },
-    "rules": {
-      "no-console": 0,
-      "window": 0,
-      "jsx-a11y/no-static-element-interactions": 0,
-      "radix": 0,
-      "forbid-prop-types": 0,
-      "react/forbid-prop-types": 0,
-      "no-nested-ternary": 0,
-      "max-len": 0,
-      "react/require-default-props": 0,
-      "react/jsx-wrap-multilines": 0,
-      "import/first": 0,
-      "react/no-multi-comp": 0
-    }
-  },
-  "babel": {
-    "presets": [
-      "react",
-      "stage-1",
-      "es2015"
-    ],
-    "plugins": [
-      "transform-decorators-legacy",
-      "transform-class-properties",
-      "react-hot-loader/babel"
-    ]
-  }
+  "homepage": "https://github.com/alexmarmon/lofty-config#readme"
 }
