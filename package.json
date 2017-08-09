@@ -1,6 +1,6 @@
 {
   "name": "@lofty/lofty-config",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "all the configs",
   "main": "server.js",
   "scripts": {
