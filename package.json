@@ -1,0 +1,36 @@
+{
+  "name": "@lofty/lofty-config",
+  "version": "1.0.0",
+  "description": "all the configs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Alex Marmon",
+  "license": "ISC",
+  "dependencies": {
+    "@lofty/lofty-pretty-print-plugin": "^1.0.1",
+    "autoprefixer": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "body-parser": "^1.17.2",
+    "chokidar": "^1.7.0",
+    "compression": "^1.7.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "express": "^4.15.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "webpack": "^3.5.1",
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmarmon/lofty-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexmarmon/lofty-config/issues"
+  },
+  "homepage": "https://github.com/alexmarmon/lofty-config#readme"
+}
