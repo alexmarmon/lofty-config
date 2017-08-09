@@ -62,7 +62,7 @@ if (process.env.npm_lifecycle_event === 'dev') {
   app.use(express.static('prod'));
   app.use('/static', express.static('static'));
   app.get('*', function(req, res){
-    res.sendFile(__dirname + path.resolve('/prod/index.html'));
+    res.sendFile(path.resolve('/prod/index.html'));
   });
   app.listen(parseInt(process.env.PORT));
 }

@@ -12,7 +12,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      vue: 'vue/dist/vue.js',
+      vue: path.resolve('node_modules/vue/dist/vue.js'),
     },
   },
 
@@ -27,7 +27,10 @@ const config = {
             require('autoprefixer')(),
           ],
           loaders: {
-            js: 'babel-loader!eslint-loader',
+            js: [
+              'babel-loader',
+              'eslint-loader',
+            ],
             scss: ExtractTextPlugin.extract({
               use: [
                 'css-loader',
