@@ -13,6 +13,7 @@
   "dependencies": {
     "@lofty/lofty-pretty-print-plugin": "^1.0.1",
     "autoprefixer": "^7.1.2",
+    "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
     "body-parser": "^1.17.2",
     "chokidar": "^1.7.0",
