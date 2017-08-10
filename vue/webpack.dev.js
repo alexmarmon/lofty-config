@@ -1,63 +1,55 @@
 const path = require('path');
 const webpack = require('webpack');
 const Merge = require('webpack-merge');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PrettyPrintPlugin = require('@lofty/lofty-pretty-print-plugin');
 const CommonConfig = require('./webpack.common.js');
 
+// merge dev environment config with common config
 const config = Merge(CommonConfig, {
   entry: {
-    "main": [
-      'webpack-dev-server/client?http://localhost:' + process.env.PORT,
+    main: [
+      // add webpack-hot-middleware to bundle and
+      // remove console logs
+      'webpack-hot-middleware/client?noInfo=true',
+      // add fetch polyfill for api requests
       'whatwg-fetch',
-      'webpack/hot/only-dev-server',
+      // add application code to bundle
       path.resolve('./src/index')
     ],
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.(scss|css)$/,
-        exclude: /node_modules/,
-        include: path.resolve('./src'),
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' },
-          { loader: 'postcss-loader',
-            options: {
-              plugins: (loader) => [
-                require('autoprefixer')({browsers: ['last 2 versions']}),
-              ],
-            },
-          },
-        ],
-      },
+    // without vendor file vue is removed from the hot bundle...
+    vendor: [
+      'vue', 'vuex', 'vue-router',
     ],
   },
 
+  // define webpack output
   output: {
-    publicPath: path.resolve('/static/'),
+    publicPath: path.resolve('/'),
     filename: '[name].dev.js',
     path: path.resolve('./dev'),
   },
 
+  // fastest for dev
+  // - https://webpack.js.org/configuration/devtool/
   devtool: 'eval',
 
-  externals: {
-    'react/addons': 'true',
-    'react/lib/ExecutionEnvironment': 'true',
-    'react/lib/ReactContext': 'true',
-  },
-
   plugins: [
-    new CopyWebpackPlugin([
-      { from: path.resolve('static'), to: path.resolve('./') },
-    ]),
+    // create global constants
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"development"'
+      }
+    }),
+    // enable hot reload - webpack-hot-middleware
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
+    // serve index.html file to client and auto inject script tags
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    }),
+    // custom pretty print output
     new PrettyPrintPlugin(),
   ],
 });
