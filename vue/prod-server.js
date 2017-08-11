@@ -26,4 +26,8 @@ app.get('*', function(req, res){
   res.sendFile(path.resolve('/prod/index.html'));
 });
 
+// start server
 app.listen(port);
+
+// export app for tests
+module.exports = app;
