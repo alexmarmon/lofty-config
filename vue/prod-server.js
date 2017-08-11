@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const compress = require('compression');
 const bodyParser = require('body-parser');
+const router = require(path.resolve('./src/api/router'));
 
 // get port
 const port = parseInt(process.env.PORT);
@@ -20,6 +21,9 @@ app.use(express.static('prod'));
 
 // serve static folder
 app.use('/static', express.static('static'));
+
+// serve api
+app.use('/api', router);
 
 // handles '/url/path' page refreshes to /index.html - spa
 app.get('*', function(req, res){
