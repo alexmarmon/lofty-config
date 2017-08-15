@@ -22,12 +22,15 @@ app.use(express.static('prod'));
 // serve static folder
 app.use('/static', express.static('static'));
 
+// server fonts
+app.use('/fonts', express.static('./src/shared_styles/fonts/'))
+
 // serve api
 app.use('/api', router);
 
 // handles '/url/path' page refreshes to /index.html - spa
 app.get('*', function(req, res){
-  res.sendFile(path.resolve('/prod/index.html'));
+  res.sendFile(path.resolve('./prod/index.html'));
 });
 
 // start server

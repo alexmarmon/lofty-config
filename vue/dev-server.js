@@ -62,6 +62,9 @@ app.use(bodyParser.json());
 // server static files
 app.use('/static', express.static('static'))
 
+// server fonts
+app.use('/static', express.static('./src/shared_styles/fonts/'))
+
 // start server
 app.listen(port);
 
