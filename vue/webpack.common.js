@@ -18,8 +18,10 @@ const config = {
     // alias vue and vuex to get full builds
     // https://vuejs.org/v2/guide/installation.html
     alias: {
-      'vue': path.resolve('node_modules/vue/dist/vue.js'),
-      'vuex': path.resolve('node_modules/vuex/dist/vuex.js'),
+      vue: path.resolve('node_modules/vue/dist/vue.js'),
+      vuex: path.resolve('node_modules/vuex/dist/vuex.js'),
+      shared_styles: path.resolve('src/shared_styles/'),
+      shared_modules: path.resolve('src/shared_modules/'),
     },
   },
 

@@ -23,7 +23,7 @@ app.use(express.static('prod'));
 app.use('/static', express.static('static'));
 
 // server fonts
-app.use('/fonts', express.static('./src/shared_styles/fonts/'))
+app.use('/static/fonts', express.static('./src/shared_styles/fonts/'))
 
 // serve api
 app.use('/api', router);
